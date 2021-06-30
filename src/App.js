@@ -9,7 +9,8 @@ import About from "./components/about";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.handlePage = this.handlePage.bind(this);
+    this.handleNewsPage = this.handleNewsPage.bind(this);
+    // this.handlGalleryPage = this.handleGalleryPage.bind(this);
     this.state = {};
   }
 
@@ -46,12 +47,13 @@ class App extends React.Component {
   //   console.log(this.state.date);
   // };
 
-  handlePage(url) {
-    fetch(url)
+  handleNewsPage(path) {
+    fetch(path)
       .then((response) => response.json())
       .then((result) =>
         this.setState({
           news: result.map((res) => <div>{res.explanation}</div>),
+          gallery: result.map((res) => <img src={res.url} alt="Wait" />),
         })
       );
   }
@@ -65,13 +67,16 @@ class App extends React.Component {
         <div>
           <Switch>
             <Route exact path="/">
-              <Home handleNews={this.handlePage} news={this.state.news} />
+              <Home handleNews={this.handleNewsPage} news={this.state.news} />
             </Route>
             <Route path="/about">
               <About />
             </Route>
             <Route path="/gallery">
-              <Gallery />
+              <Gallery
+                handleGallery={this.handleNewsPage}
+                gallery={this.state.gallery}
+              />
             </Route>
           </Switch>
         </div>
