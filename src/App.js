@@ -14,14 +14,15 @@ class App extends React.Component {
   }
   gettingData() {
     fetch(
-      "https://api.nasa.gov/planetary/apod?api_key=FssgzRxRGe1elBmwvuQYcqfZPBBSr4dX3HQryjFX&date=2017-07-08"
+      "https://api.nasa.gov/planetary/apod?api_key=FssgzRxRGe1elBmwvuQYcqfZPBBSr4dX3HQryjFX&start_date=2017-07-08&end_date=2017-07-10"
     )
       .then((response) => response.json())
       .then((result) =>
         this.setState({
-          date: result.date,
-          title: result.title,
-          url: result.url,
+          date: result.map((res) => res.date),
+          title: result.map((res) => res.title),
+          url: result.map((res) => res.url),
+          info: result.map((res) => res.explanation),
         })
       );
   }
@@ -40,7 +41,7 @@ class App extends React.Component {
         <div>
           <Switch>
             <Route exact path="/">
-              <Home date={this.state.date} title={this.state.title} />
+              <Home date={this.state.date} info={this.state.info} />
             </Route>
             <Route path="/about">
               <About />
