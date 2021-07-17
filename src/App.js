@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { api_key, newsNumber } from "./sensitiveData";
 
 import Nav from "./components/nav";
-import Home from "./components/home";
-import Gallery from "./components/gallery";
+import Home from "./components/home/home";
+import Gallery from "./components/gallery/gallery";
 import About from "./components/about";
 
 class App extends React.Component {
@@ -14,7 +15,7 @@ class App extends React.Component {
   }
   gettingData() {
     fetch(
-      "https://api.nasa.gov/planetary/apod?api_key=FssgzRxRGe1elBmwvuQYcqfZPBBSr4dX3HQryjFX&start_date=2017-07-08&end_date=2017-07-10"
+      "https://api.nasa.gov/planetary/apod?api_key=FssgzRxRGe1elBmwvuQYcqfZPBBSr4dX3HQryjFX&start_date=2017-07-08&end_date=2017-07-12"
     )
       .then((response) => response.json())
       .then((result) =>
@@ -35,21 +36,23 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
-          <Nav />
-        </div>
-        <div>
-          <Switch>
-            <Route exact path="/">
-              <Home date={this.state.date} info={this.state.info} />
-            </Route>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/gallery">
-              <Gallery url={this.state.url} />
-            </Route>
-          </Switch>
+        <div className="main">
+          <div className="nav">
+            <Nav />
+          </div>
+          <div className="article">
+            <Switch>
+              <Route exact path="/">
+                <Home date={this.state.date} info={this.state.info} />
+              </Route>
+              <Route path="/about">
+                <About />
+              </Route>
+              <Route path="/gallery">
+                <Gallery url={this.state.url} title={this.state.title} />
+              </Route>
+            </Switch>
+          </div>
         </div>
       </BrowserRouter>
     );
