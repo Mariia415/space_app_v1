@@ -5,9 +5,7 @@ const Nav = () => {
   return (
     <div>
       <ul>
-        <li>
-          <img src="../../public/favicon-32x32.png" alt="Logo" />
-        </li>
+        
         <li>
           <Link to="/">Home</Link>
         </li>
