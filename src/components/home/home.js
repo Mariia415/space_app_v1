@@ -3,8 +3,6 @@ import { NewsCard } from "./newsCard";
 import { newsNumber } from "../../sensitiveData";
 
 const Home = ({ date, info }) => {
-  console.log(date);
-  console.log(info);
   const gettingNews = (day, news) => {
     const newsBlock = [];
     if (date && info) {

@@ -18,8 +18,6 @@ const Gallery = ({ url, title }) => {
     return val;
   };
 
-  console.log(url);
-
   return (
     <div className={theme}>
       <h1>Gallery</h1>

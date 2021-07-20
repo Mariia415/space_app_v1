@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { api_key, newsNumber } from "./sensitiveData";
+import { request_url } from "./sensitiveData";
 
 import Nav from "./components/nav";
 import Home from "./components/home/home";
@@ -14,9 +14,7 @@ class App extends React.Component {
     this.gettingData = this.gettingData.bind(this);
   }
   gettingData() {
-    fetch(
-      "https://api.nasa.gov/planetary/apod?api_key=FssgzRxRGe1elBmwvuQYcqfZPBBSr4dX3HQryjFX&start_date=2017-07-08&end_date=2017-07-12"
-    )
+    fetch(request_url)
       .then((response) => response.json())
       .then((result) =>
         this.setState({
@@ -30,7 +28,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.gettingData();
-    console.log(this.state);
   }
 
   render() {
