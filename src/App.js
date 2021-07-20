@@ -14,7 +14,20 @@ class App extends React.Component {
     this.state = {};
   }
   componentDidMount() {
-    console.log(store.getState());
+    fetch(
+      "https://api.nasa.gov/planetary/apod?api_key=FssgzRxRGe1elBmwvuQYcqfZPBBSr4dX3HQryjFX"
+    )
+      .then((result) => result.json())
+      .then((response) =>
+        store.dispatch({
+          type: "Liuda",
+          payload: {
+            date: response.date,
+            title: response.title,
+          },
+        })
+      );
+    console.log("Hmmmm");
   }
 
   render() {

@@ -4,13 +4,18 @@ const initialState = {
 };
 
 export const reducerMe = (state = initialState, action) => {
-  switch (action.type) {
-    case "Masha": {
-      return {
-        ...state,
-        date: action.payload.birthday,
-        news: action.payload.age,
-      };
+  if (action.type) {
+    switch (action.type) {
+      case "Masha": {
+        return {
+          ...state,
+          date: action.payload.birthday,
+          news: action.payload.age,
+        };
+      }
     }
   }
+  return {
+    ...initialState,
+  };
 };
