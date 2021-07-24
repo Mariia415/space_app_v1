@@ -20,7 +20,7 @@
 //   };
 // };
 
-import { GET_NEWS, GET_IMG } from "../actions/types";
+import { GET_NEWS } from "../actions/types";
 
 const initialState = {
   news: [],

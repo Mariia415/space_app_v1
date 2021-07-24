@@ -19,16 +19,19 @@
 //   }
 // };
 import { GET_IMG } from "../actions/types";
+
 const initialState = {
   gallery: [],
 };
+
 export const galleryReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_IMG:
+      console.log("reducer imgs");
       return {
         ...state,
+        gallery: action.payload,
       };
-
     default:
       return state;
   }
