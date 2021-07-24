@@ -6,30 +6,10 @@ import Nav from "./features/nav/nav";
 import Home from "./features/home/home";
 import Gallery from "./features/gallery/gallery";
 import About from "./features/about/about";
+import { Provider } from "react-redux";
 import store from "./store";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  componentDidMount() {
-    fetch(
-      "https://api.nasa.gov/planetary/apod?api_key=FssgzRxRGe1elBmwvuQYcqfZPBBSr4dX3HQryjFX"
-    )
-      .then((result) => result.json())
-      .then((response) =>
-        store.dispatch({
-          type: "Liuda",
-          payload: {
-            date: response.date,
-            title: response.title,
-          },
-        })
-      );
-    console.log("Hmmmm");
-  }
-
   render() {
     return (
       <BrowserRouter>

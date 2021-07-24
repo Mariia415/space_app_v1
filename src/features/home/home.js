@@ -1,21 +1,51 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getNewsAction } from "../../actions/getNewsAction";
 
-const Home = () => {
-  const action = { type: "Masha", payload: { age: 39, birthday: "21.05.82" } };
-  const dispatch = useDispatch();
-  dispatch(action);
-  const selector = (state) => state;
-  const me = useSelector(selector);
+class Home extends React.Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     news: [],
+  //   };
+  // }
 
-  return (
-    <div>
-      <h1>Home</h1>
+  // componentDidMount() {
+  //   fetch(
+  //     "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2017-07-08&end_date=2017-07-10"
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => this.setState({ news: data }));
+  // }
+  componentWillMount() {
+    this.props.getNewsAction();
+  }
 
-      <div> I am {me.news} y.o.</div>
-    </div>
-  );
+  render() {
+    const news = this.props.news.map((newsPeace, idx) => (
+      <div key={idx}>
+        <h3>{newsPeace.title}</h3>
+        <p>{newsPeace.date}</p>
+        <p>{newsPeace.explanation}</p>
+      </div>
+    ));
+    return (
+      <div>
+        <h1>Home</h1>
+        {news}
+      </div>
+    );
+  }
+}
+
+Home.propTypes = {
+  getNewsAction: PropTypes.func.isRequired,
+  news: PropTypes.array.isRequired,
 };
 
-export default Home;
+const mapStateToProps = (state) => ({
+  news: state.news.news,
+});
+
+export default connect(mapStateToProps, { getNewsAction })(Home);
