@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-// import { useSelector, useDispatch } from "react-redux";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getNewsAction } from "./actions/getNewsAction";
@@ -9,8 +8,6 @@ import Nav from "./features/nav/nav";
 import Home from "./features/home/home";
 import Gallery from "./features/gallery/gallery";
 import About from "./features/about/about";
-// import { Provider } from "react-redux";
-// import store from "./store";
 
 class App extends React.Component {
   componentDidMount() {
@@ -18,21 +15,18 @@ class App extends React.Component {
   }
 
   render() {
-    // console.log("App rendered");
-    // console.log(this.props.news);
     const news = this.props.news.map((item) => item.explanation);
     const dates = this.props.news.map((item) => item.date);
     const titles = this.props.news.map((item) => item.title);
     const imgs = this.props.news.map((item) => item.url);
-    // console.log(news, dates, titles, imgs);
 
     return (
       <BrowserRouter>
         <div className="main">
-          <div>
+          <div className="nav">
             <Nav />
           </div>
-          <div>
+          <div className="article">
             <Switch>
               <Route exact path="/">
                 <Home news={news} dates={dates} />

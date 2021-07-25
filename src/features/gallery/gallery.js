@@ -4,9 +4,9 @@ const Gallery = ({ titles, imgs }) => {
   console.log(titles, imgs);
   const gallery = titles.map((title, idx) => {
     return (
-      <div key={idx}>
-        <img src={imgs[idx]} alt="wait.." />
-        <p>{title}</p>
+      <div key={idx} className="gallery-card">
+        <img src={imgs[idx]} alt="wait.." className="gallery-img" />
+        <p className="gallery-title">{title}</p>
       </div>
     );
   });

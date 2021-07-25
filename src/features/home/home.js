@@ -4,9 +4,9 @@ const Home = ({ news, dates }) => {
   console.log("Home rendered");
   const newsBlock = news.map((item, idx) => {
     return (
-      <div key={idx}>
-        <div>{dates[idx]}</div>
-        <div>{item}</div>
+      <div key={idx} className="news-card">
+        <div className="news-date">{dates[idx]}</div>
+        <div className="news-text">{item}</div>
       </div>
     );
   });
