@@ -7,8 +7,7 @@ import App from "./App";
 import store from "./store";
 import reportWebVitals from "./reportWebVitals";
 
-const check = store.getState();
-console.log(check.age);
+
 
 ReactDOM.render(
   <React.StrictMode>

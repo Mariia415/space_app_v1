@@ -1,4 +1,4 @@
-import { GET_NEWS, GET_IMG } from "./types";
+import { GET_NEWS } from "./types";
 
 export const getNewsAction = () => (dispatch) => {
   console.log("getting news");
