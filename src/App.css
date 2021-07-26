@@ -68,6 +68,18 @@ p {
   justify-content: flex-start;
   align-items: center;
 }
+.gallery-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.gallery-h1 {
+  margin-right: 1rem;
+}
+.gallery-select {
+  padding: 0.25rem 0.5rem;
+}
 
 .gallery-collection {
   display: flex;

@@ -1,5 +1,5 @@
-import React from "react";
-
+// import React from "react";
+import GalleryTheme from "./galeryTheme";
 const Gallery = ({ titles, imgs }) => {
   console.log(titles, imgs);
   const gallery = titles.map((title, idx) => {
@@ -13,7 +13,11 @@ const Gallery = ({ titles, imgs }) => {
 
   return (
     <div>
-      <h1>Gallery</h1>
+      <div className="gallery-header">
+        <h1 className="gallery-h1">Gallery</h1>
+        <GalleryTheme />
+      </div>
+
       {gallery}
     </div>
   );
