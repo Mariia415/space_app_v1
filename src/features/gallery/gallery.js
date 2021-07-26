@@ -1,4 +1,5 @@
 // import React from "react";
+import { useState } from "react";
 import GalleryTheme from "./galeryTheme";
 const Gallery = ({ titles, imgs }) => {
   console.log(titles, imgs);
@@ -11,11 +12,20 @@ const Gallery = ({ titles, imgs }) => {
     );
   });
 
+  const [theme, setTheme] = useState("gallery");
+  const changeTheme = (e) => (changeColor) => {
+    changeColor(e.target.value);
+  };
+
   return (
-    <div>
+    <div className={theme}>
       <div className="gallery-header">
         <h1 className="gallery-h1">Gallery</h1>
-        <GalleryTheme />
+        <GalleryTheme
+          themeMethod={changeTheme}
+          changeColor={setTheme}
+          theme={theme}
+        />
       </div>
 
       {gallery}
