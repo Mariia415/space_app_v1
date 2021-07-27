@@ -1,5 +1,5 @@
 export const api_key = `FssgzRxRGe1elBmwvuQYcqfZPBBSr4dX3HQryjFX`;
-const period = 5;
+const period = 8;
 const date = new Date();
 const prevDate = new Date(
   date.getFullYear(),
