@@ -1,8 +1,6 @@
 import { GET_NEWS } from "./types";
 import { api_key, startDate, endDate } from "../sensitiveData";
 
-console.log(startDate, endDate);
-
 export const getNewsAction = () => (dispatch) => {
   console.log("getting news");
   fetch(

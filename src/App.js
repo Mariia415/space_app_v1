@@ -15,10 +15,14 @@ class App extends React.Component {
   }
 
   render() {
-    const news = this.props.news.map((item) => item.explanation);
-    const dates = this.props.news.map((item) => item.date);
-    const titles = this.props.news.map((item) => item.title);
-    const imgs = this.props.news.map((item) => item.url);
+    const gettingData = (arr, exactData) => {
+      return arr.map((item) => item[exactData]);
+    };
+
+    const news = gettingData(this.props.news, "explanation");
+    const dates = gettingData(this.props.news, "date");
+    const titles = gettingData(this.props.news, "title");
+    const imgs = gettingData(this.props.news, "url");
 
     return (
       <BrowserRouter>
