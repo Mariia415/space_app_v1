@@ -1,7 +1,6 @@
 import React from "react";
 
 const Home = ({ news, dates }) => {
-  console.log("Home rendered");
   const newsBlock = news.map((item, idx) => {
     return (
       <div key={idx} className="news-card">

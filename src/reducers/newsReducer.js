@@ -7,7 +7,6 @@ const initialState = {
 export const newsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_NEWS:
-      console.log("reducer news");
       return {
         ...state,
         news: action.payload,

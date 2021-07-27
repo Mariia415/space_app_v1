@@ -2,7 +2,6 @@ import { GET_NEWS } from "./types";
 import { api_key, startDate, endDate } from "../sensitiveData";
 
 export const getNewsAction = () => (dispatch) => {
-  console.log("getting news");
   fetch(
     `https://api.nasa.gov/planetary/apod?api_key=${api_key}&start_date=${startDate}&end_date=${endDate}`
   )

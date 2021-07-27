@@ -2,7 +2,6 @@
 import { useState } from "react";
 import GalleryTheme from "./galeryTheme";
 const Gallery = ({ titles, imgs }) => {
-  console.log(titles, imgs);
   const gallery = titles.map((title, idx) => {
     return (
       <div key={idx} className="gallery-card">
