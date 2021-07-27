@@ -1,20 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-<<<<<<< HEAD
 import "./index.css";
 import "./App.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-=======
-import { Provider } from "react-redux";
-import "./index.css";
-import "./App.css";
-import App from "./App";
-import store from "./store";
-import reportWebVitals from "./reportWebVitals";
-
-
->>>>>>> SAV-001-redux-thunk_implementation
 
 ReactDOM.render(
   <React.StrictMode>

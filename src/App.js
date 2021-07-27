@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-<<<<<<< HEAD
 import { request_url } from "./sensitiveData";
 
 import Nav from "./components/nav";
@@ -29,20 +28,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.gettingData();
-=======
-import PropTypes from "prop-types";
-import { connect } from "react-redux";
-import { getNewsAction } from "./actions/getNewsAction";
-
-import Nav from "./features/nav/nav";
-import Home from "./features/home/home";
-import Gallery from "./features/gallery/gallery";
-import About from "./features/about/about";
-
-class App extends React.Component {
-  componentDidMount() {
-    this.props.getNewsAction();
->>>>>>> SAV-001-redux-thunk_implementation
   }
 
   render() {
@@ -64,21 +49,13 @@ class App extends React.Component {
           <div className="article">
             <Switch>
               <Route exact path="/">
-<<<<<<< HEAD
                 <Home date={this.state.date} info={this.state.info} />
-=======
-                <Home news={news} dates={dates} />
->>>>>>> SAV-001-redux-thunk_implementation
               </Route>
               <Route path="/about">
                 <About />
               </Route>
               <Route path="/gallery">
-<<<<<<< HEAD
                 <Gallery url={this.state.url} title={this.state.title} />
-=======
-                <Gallery titles={titles} imgs={imgs} />
->>>>>>> SAV-001-redux-thunk_implementation
               </Route>
             </Switch>
           </div>
