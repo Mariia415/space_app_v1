@@ -2,10 +2,10 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { request_url } from "./sensitiveData";
 
-import Nav from "./components/nav";
-import Home from "./components/home/home";
-import Gallery from "./components/gallery/gallery";
-import About from "./components/about";
+import Nav from "./features/nav";
+import Home from "./features/home";
+import Gallery from "./features/gallery";
+import About from "./features/about";
 
 class App extends React.Component {
   constructor(props) {
@@ -49,13 +49,13 @@ class App extends React.Component {
           <div className="article">
             <Switch>
               <Route exact path="/">
-                <Home date={this.state.date} info={this.state.info} />
+                <Home date={dates} news={news} />
               </Route>
               <Route path="/about">
                 <About />
               </Route>
               <Route path="/gallery">
-                <Gallery url={this.state.url} title={this.state.title} />
+                <Gallery imgs={imgs} titles={titles} />
               </Route>
             </Switch>
           </div>
