@@ -1,33 +1,17 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { request_url } from "./sensitiveData";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { getNewsAction } from "./actions/getNewsAction";
 
-import Nav from "./features/nav";
-import Home from "./features/home";
-import Gallery from "./features/gallery";
-import About from "./features/about";
+import Nav from "./features/nav/nav";
+import Home from "./features/home/home";
+import Gallery from "./features/gallery/gallery";
+import About from "./features/about/about";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.gettingData = this.gettingData.bind(this);
-  }
-  gettingData() {
-    fetch(request_url)
-      .then((response) => response.json())
-      .then((result) =>
-        this.setState({
-          date: result.map((res) => res.date),
-          title: result.map((res) => res.title),
-          url: result.map((res) => res.url),
-          info: result.map((res) => res.explanation),
-        })
-      );
-  }
-
   componentDidMount() {
-    this.gettingData();
+    this.props.getNewsAction();
   }
 
   render() {
@@ -49,13 +33,13 @@ class App extends React.Component {
           <div className="article">
             <Switch>
               <Route exact path="/">
-                <Home date={dates} news={news} />
+                <Home news={news} dates={dates} />
               </Route>
               <Route path="/about">
                 <About />
               </Route>
               <Route path="/gallery">
-                <Gallery imgs={imgs} titles={titles} />
+                <Gallery titles={titles} imgs={imgs} />
               </Route>
             </Switch>
           </div>
