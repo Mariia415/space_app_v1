@@ -1,6 +1,7 @@
-import React from "react";
+// import React from "react";
 
 const Home = ({ news, dates }) => {
+  
   const newsBlock = news.map((item, idx) => {
     return (
       <div key={idx} className="news-card">
