@@ -13,7 +13,7 @@ const Home = ({ text: news, int: dates }) => {
 
   return (
     <div>
-      <h1>Home</h1>
+      <h1 className="news-h1">Home</h1>
       {newsBlock}
     </div>
   );

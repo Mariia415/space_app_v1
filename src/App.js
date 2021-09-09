@@ -47,7 +47,7 @@ class App extends Component {
               </Route>
               <Route path="/about">
                 <About />
-               
+                
               </Route>
               <Route path="/gallery">
                 {/* <Gallery titles={titles} imgs={imgs} /> */}

@@ -4,10 +4,10 @@ const About = () => {
   return (
     <div className="about">
       <h1>About</h1>
-      <p>Our Universe is stunning! And it's a pity we don't see it's beauty!</p>
+      <p>Our Universe is stunning! And it's a pity we don't see its beauty!</p>
       <p>
         This app is aiming to display incredible pictures of what is happening
-        in around our planet.
+      around our planet.
       </p>
       <p>
         The source is

@@ -45,7 +45,24 @@ p {
   align-items: stretch;
 }
 
+/*----------SEARCH BAR----------*/
+.search-bar{
+  position: fixed;
+  padding: 0.625rem 0.625rem 1.5rem;
+  background-color: rgba(255, 255, 255, 1);
+  width: 82%; 
+}
+
+.label{
+  padding-right: 0.5rem;
+}
+
+
 /*-----------HOME--------------*/
+.news-h1{
+  margin-top: 3rem;
+}
+
 .news-card {
   display: flex;
   align-items: center;
@@ -72,6 +89,7 @@ p {
   align-items: center;
 }
 .gallery-header {
+  padding-top: 1rem;
   display: flex;
   align-items: center;
   justify-content: flex-start;

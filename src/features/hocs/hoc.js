@@ -2,7 +2,7 @@ import React from "react";
 
 const MyFirstHoc = (WrappedComponent) => {
     return(
-        class newComponent extends React.Component{
+        class withSearch extends React.Component{
             state ={
                 searchTerm: ""
             }
@@ -10,7 +10,6 @@ const MyFirstHoc = (WrappedComponent) => {
             handleSearch = e => {
                 this.setState({searchTerm: e.target.value})
             }
-
            
             render(){
 
@@ -20,8 +19,6 @@ const MyFirstHoc = (WrappedComponent) => {
                        let str = `${item}`.toUpperCase();
                        return str.indexOf(searchTerm) >= 0;
                    })
-
-                   
                 }
 
                 const {searchTerm} = this.state;
@@ -32,8 +29,11 @@ const MyFirstHoc = (WrappedComponent) => {
 
                 return (
                     <>
-                    <label>Search</label>
-                    <input onChange={this.handleSearch} value={this.state.searchTerm} type="text" placeholder="search"/>
+                    <div className="search-bar">
+                        <label className="label">Search</label>
+                        <input onChange={this.handleSearch} value={this.state.searchTerm} type="text" placeholder="search"/>
+                    </div>
+                    
                     <WrappedComponent text={filteredItems} int={this.props.int}/>
                     {/* <WrappedComponent {...this.props}/> */}
                     </>
