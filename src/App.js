@@ -31,7 +31,7 @@ class App extends Component {
     const imgs = gettingData(this.props.news, "url");
     
 
-    console.log(news);
+    console.log(`This is news`, news);
 
     return (
       <BrowserRouter>
