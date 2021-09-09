@@ -43,7 +43,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/">
                 {/* <Home news={news} dates={dates} /> */}
-                <WithSearchHome news={news} dates={dates}/>
+                <WithSearchHome text={news} int={dates}/>
               </Route>
               <Route path="/about">
                 <About />
@@ -51,7 +51,7 @@ class App extends Component {
               </Route>
               <Route path="/gallery">
                 {/* <Gallery titles={titles} imgs={imgs} /> */}
-                <WithSearchGallery titles={titles} imgs={imgs
+                <WithSearchGallery text={titles} int={imgs
                 } />
               </Route>
             </Switch>

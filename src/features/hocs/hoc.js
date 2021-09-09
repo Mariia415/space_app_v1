@@ -25,16 +25,16 @@ const MyFirstHoc = (WrappedComponent) => {
                 }
 
                 const {searchTerm} = this.state;
-                const filteredItems = filterItems(searchTerm, this.props.titles);
+                const filteredItems = filterItems(searchTerm, this.props.text);
                 
                 console.log(`filteredItems`, filteredItems);
-                console.log(`If we change props`, this.props.titles)
+                console.log(`If we change props`, this.props.text)
 
                 return (
                     <>
                     <label>Search</label>
                     <input onChange={this.handleSearch} value={this.state.searchTerm} type="text" placeholder="search"/>
-                    <WrappedComponent titles={filteredItems} imgs={this.props.imgs}/>
+                    <WrappedComponent text={filteredItems} int={this.props.int}/>
                     {/* <WrappedComponent {...this.props}/> */}
                     </>
                 )

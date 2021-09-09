@@ -1,6 +1,6 @@
 // import React from "react";
 
-const Home = ({ news, dates }) => {
+const Home = ({ text: news, int: dates }) => {
   
   const newsBlock = news.map((item, idx) => {
     return (

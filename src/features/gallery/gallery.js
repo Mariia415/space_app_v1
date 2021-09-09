@@ -1,7 +1,9 @@
 // import React from "react";
 import { useState } from "react";
 import GalleryTheme from "./galeryTheme";
-const Gallery = ({ titles, imgs }) => {
+
+
+const Gallery = ({ text: titles, int: imgs }) => {
   const gallery = titles.map((title, idx) => {
     return (
       <div key={idx} className="gallery-card">
