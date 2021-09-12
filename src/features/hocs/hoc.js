@@ -16,7 +16,7 @@ const MyFirstHoc = (WrappedComponent) => {
               const filterItems = (searchTerm, items) => {
                    searchTerm = searchTerm.toUpperCase();
                    return items.filter(item => {
-                       let str = `${item}`.toUpperCase();
+                       let str = `${item.info}`.toUpperCase();
                        return str.indexOf(searchTerm) >= 0;
                    })
                 }

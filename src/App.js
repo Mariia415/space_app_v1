@@ -21,7 +21,7 @@ class App extends Component {
   render() {
     const gettingData = (arr, exactData) => {
       if (Array.isArray(arr)) {
-        return arr.map((item) => item[exactData]);
+        return arr.map((item, idx) => ({info: item[exactData], id: idx}));
       }
     };
 
