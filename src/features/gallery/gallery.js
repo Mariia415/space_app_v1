@@ -7,8 +7,8 @@ const Gallery = ({ text: titles, int: imgs }) => {
   const gallery = titles.map((title, idx) => {
     return (
       <div key={idx} className="gallery-card">
-        <img src={imgs[idx]} alt="wait.." className="gallery-img" />
-        <p className="gallery-title">{title}</p>
+        <img src={imgs[idx].info} alt="wait.." className="gallery-img" />
+        <p className="gallery-title">{title.info}</p>
       </div>
     );
   });
@@ -28,7 +28,6 @@ const Gallery = ({ text: titles, int: imgs }) => {
           theme={theme}
         />
       </div>
-
       {gallery}
     </div>
   );

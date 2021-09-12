@@ -25,6 +25,7 @@ class App extends Component {
       }
     };
 
+
     const news = gettingData(this.props.news, "explanation");
     const dates = gettingData(this.props.news, "date");
     const titles = gettingData(this.props.news, "title");
@@ -43,6 +44,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/">
                 {/* <Home news={news} dates={dates} /> */}
+                 {/* text means news, int means dates */}
                 <WithSearchHome text={news} int={dates}/>
               </Route>
               <Route path="/about">
@@ -51,6 +53,7 @@ class App extends Component {
               </Route>
               <Route path="/gallery">
                 {/* <Gallery titles={titles} imgs={imgs} /> */}
+                {/* text means titles, int means images */}
                 <WithSearchGallery text={titles} int={imgs
                 } />
               </Route>
