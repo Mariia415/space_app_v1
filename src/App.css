@@ -29,6 +29,10 @@ p {
   padding-left: 1.25rem;
 }
 
+.none{
+  display: none;
+}
+
 /* ----------NAVIGATION----------- */
 .nav {
   flex: 0.7;

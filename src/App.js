@@ -8,10 +8,13 @@ import Nav from "./features/nav/nav";
 import Home from "./features/home/home";
 import Gallery from "./features/gallery/gallery";
 import About from "./features/about/about";
+import NotAuthorized from "./features/about/notAuthorized";
 import myFirstHoc from "./features/hocs/hoc";
+import AuthorizationHOC from "./features/hocs/authorizationHOC";
 
 const WithSearchHome = myFirstHoc(Home);
 const WithSearchGallery = myFirstHoc(Gallery);
+const WithAuthorization = AuthorizationHOC(About, NotAuthorized);
 
 class App extends Component {
   componentDidMount() {
@@ -44,8 +47,8 @@ class App extends Component {
                 <WithSearchHome text={news} int={dates}/>
               </Route>
               <Route path="/about">
-                <About />
-                
+                {/* <About /> */}
+                <WithAuthorization/>
               </Route>
               <Route path="/gallery">
                 <WithSearchGallery text={titles} int={imgs
