@@ -32,8 +32,6 @@ class App extends Component {
     const imgs = gettingData(this.props.news, "url");
     
 
-    console.log(`This is news`, news);
-
     return (
       <BrowserRouter>
         <div className="main">
@@ -43,8 +41,6 @@ class App extends Component {
           <div className="article">
             <Switch>
               <Route exact path="/">
-                {/* <Home news={news} dates={dates} /> */}
-                 {/* text means news, int means dates */}
                 <WithSearchHome text={news} int={dates}/>
               </Route>
               <Route path="/about">
@@ -52,8 +48,6 @@ class App extends Component {
                 
               </Route>
               <Route path="/gallery">
-                {/* <Gallery titles={titles} imgs={imgs} /> */}
-                {/* text means titles, int means images */}
                 <WithSearchGallery text={titles} int={imgs
                 } />
               </Route>
@@ -75,4 +69,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, { getNewsAction })(App);
-// export default App;
