@@ -4,7 +4,7 @@ const NotAuthorized = ({tryMethod}) => {
     return(
         <>
         <div>You are not authorized</div>
-        <button onClick = {tryMethod}>Try again</button>
+        <button onClick = {tryMethod}>Return</button>
         </>
     )
 }

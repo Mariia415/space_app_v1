@@ -13,13 +13,14 @@ const AuthorizationHOC = (WrappedComponent1, WrappedComponent2 ) => {
                 e.preventDefault();
                 
                 if(document.querySelector('.value').value !== ''){
-                    document.querySelector('form').setAttribute('class', 'none')
+                    document.querySelector('form').setAttribute('class', 'none');
                 }
              };
 
             tryAgain = () => {
                 this.setState({password: ""});
                 document.querySelector('form').classList.remove('none');
+                
              };
 
            
@@ -29,7 +30,7 @@ const AuthorizationHOC = (WrappedComponent1, WrappedComponent2 ) => {
                     return (
                         <>
                         <form onSubmit = {this.handleAuthorization}>
-                         <input className="value" type="text" name="text" />
+                         <input className="value" type="text" minLength="4" maxLength="4" placeholder='Enter 4 digit access code'/>
                          <button  type="submit">Submit</button>
                         </form>
                         <div>Please enter your access code</div>
@@ -40,7 +41,7 @@ const AuthorizationHOC = (WrappedComponent1, WrappedComponent2 ) => {
                 return(
                     <>
                     <form onSubmit = {this.handleAuthorization}>
-                      <input className="value" type="text" name="text" />
+                      <input className="value" type="text" minLength="4" maxLength="4" />
                       <button  type="submit">Submit</button>
                       </form>
                       {guestAccessCodes.includes(authorization)
