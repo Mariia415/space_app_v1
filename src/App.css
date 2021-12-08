@@ -32,7 +32,12 @@ p {
 .none{
   display: none;
 }
-
+/*-----------LOGIN----------------*/
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 /* ----------NAVIGATION----------- */
 .nav {
   flex: 0.7;
