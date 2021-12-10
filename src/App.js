@@ -9,13 +9,13 @@ import Login from "./features/login/login";
 import Home from "./features/home/home";
 import Gallery from "./features/gallery/gallery";
 import About from "./features/about/about";
-// import NotAuthorized from "./features/about/notAuthorized";
+
 import myFirstHoc from "./features/hocs/hoc";
-// import AuthorizationHOC from "./features/hocs/authorizationHOC";
+
 
 const WithSearchHome = myFirstHoc(Home);
 const WithSearchGallery = myFirstHoc(Gallery);
-// const WithAuthorization = AuthorizationHOC(About, NotAuthorized);
+
 
 class App extends Component {
   state = {login: sessionStorage.getItem('login')}
@@ -26,7 +26,7 @@ class App extends Component {
   
   render() {
     const doLogin = () => {
-      // this.setState({login: true});
+
       sessionStorage.setItem('login', true);
       this.setState({login: sessionStorage.getItem('login')})
     }

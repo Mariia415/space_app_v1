@@ -8,9 +8,19 @@ const prevDate = new Date(
 );
 
 const accessCodes = ['1234', '2345', '3456', '78910', '23476', '2k4567', 'ff7869', '23gs'];
+const accessCredentials = [
+  {test: "0001"},
+  {test: "0002"},
+  {test: "00010"},
+  {test: "00011"},
+  {test: "00012"}
+]
 
 export const startDate = prevDate.toJSON().slice(0, 10);
 export const endDate = date.toJSON().slice(0, 10);
 export const guestAccessCodes = accessCodes.filter(item => {
   return item.length === 4 && !isNaN(Number(item));
 });
+export const testAccess = accessCredentials.filter((item) => item.test.length === 4);
+
+
