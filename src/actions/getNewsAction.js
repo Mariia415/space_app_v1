@@ -1,5 +1,5 @@
 import { GET_NEWS } from "./types";
-import { api_key, startDate, endDate } from "../sensitiveData";
+import { api_key, startDate, endDate } from "../helpers/sensitiveData";
 
 export const getNewsAction = () => (dispatch) => {
   fetch(

@@ -1,6 +1,6 @@
 import React from "react";
 
-const MyFirstHoc = (WrappedComponent) => {
+const WithSearch = (WrappedComponent) => {
     return(
         class withSearch extends React.Component{
             state ={
@@ -57,4 +57,4 @@ const MyFirstHoc = (WrappedComponent) => {
     )
 }
 
-export default MyFirstHoc;
+export default WithSearch;
