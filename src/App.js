@@ -17,8 +17,7 @@ class App extends Component {
   
   componentDidMount() {
     this.props.getNewsAction();
-    this.props.loginAction(sessionStorage.getItem('login'));
-    
+    this.props.loginAction(sessionStorage.getItem('login'));    
   }
   
   render() {

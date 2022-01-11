@@ -10,7 +10,8 @@ const Login = ({doLogin}) => {
         e.preventDefault();
         if(verifyCredentials(username, password)){
           sessionStorage.setItem('login', true);
-          doLogin(sessionStorage.getItem('login'));
+          const log = sessionStorage.getItem('login');
+          doLogin(log);
         }
       }
 
