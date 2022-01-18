@@ -27,9 +27,7 @@ class App extends Component {
     const titles = gettingData(this.props.news, "title");
     const imgs = gettingData(this.props.news, "url");
     const loggedIn = this.props.login;
-    console.log(loggedIn);
-       
-    
+        
     return (
       <BrowserRouter>
         

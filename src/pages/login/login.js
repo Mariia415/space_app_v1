@@ -7,11 +7,14 @@ const Login = ({doLogin}) => {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
     const handleSubmit = (e) => {
-        e.preventDefault();
-        if(verifyCredentials(username, password)){
+
+        if (verifyCredentials(username, password)){
+
           sessionStorage.setItem('login', true);
-          const log = sessionStorage.getItem('login');
-          doLogin(log);
+          doLogin(sessionStorage.getItem('login'));          
+
+        } else {
+          e.preventDefault();
         }
       }
 
