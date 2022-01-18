@@ -1,19 +1,21 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import { testAccess } from '../../sensitiveData';
-import LoginForm from '../../components/forms/LoginForm';
+import {user, pwd} from '../../sensitiveData';
+import LoginForm from '../../components/forms/loginForm';
 
 
 const Login = ({doLogin}) => {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
     const handleSubmit = (e) => {
-        e.preventDefault();
-        if(testAccess.some((user) => 
-        username === Object.keys(user).join() && password === Object.values(user).join())){
-            doLogin();
-        }   
-
+          if(username === user && password === pwd){
+            sessionStorage.setItem('login', 'true');
+            const login = sessionStorage.getItem('login');
+            console.log(login);
+            doLogin(login);              
+        } else {
+          e.preventDefault();
+        }  
     }
 
     return(

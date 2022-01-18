@@ -3,49 +3,32 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getNewsAction } from "./actions/getNewsAction";
+import { loginAction } from "./actions/loginAction";
+import selectgData from "./helpers/selectData";
 
-import Nav from "./features/nav/nav";
-import Login from "./features/login/login";
-import Home from "./features/home/home";
-import Gallery from "./features/gallery/gallery";
-import About from "./features/about/about";
-
-import myFirstHoc from "./features/hocs/hoc";
-
-
-const WithSearchHome = myFirstHoc(Home);
-const WithSearchGallery = myFirstHoc(Gallery);
-
+import Nav from "./pages/nav/nav";
+import Login from "./pages/login/login";
+import About from "./pages/about/about";
+import HomeWithSearch from "./pages/home/homeWithSearch";
+import GalleryWithSearch from "./pages/gallery/galleryWithSearch";
 
 class App extends Component {
-  state = {login: sessionStorage.getItem('login')}
-
+  
   componentDidMount() {
     this.props.getNewsAction();
+    this.props.loginAction(sessionStorage.getItem('login'));
   }
   
   render() {
-    const doLogin = () => {
-
-      sessionStorage.setItem('login', true);
-      this.setState({login: sessionStorage.getItem('login')})
-    }
-
-    const gettingData = (arr, exactData) => {
-      if (Array.isArray(arr)) {
-        return arr.map((item, idx) => ({info: item[exactData], id: idx}));
-      }
-    };
-
-    console.log(this.state.login);
-    const news = gettingData(this.props.news, "explanation");
-    const dates = gettingData(this.props.news, "date");
-    const titles = gettingData(this.props.news, "title");
-    const imgs = gettingData(this.props.news, "url");
     
-    if(!this.state.login) {
+    const news = selectgData(this.props.news, "explanation");
+    const dates = selectgData(this.props.news, "date");
+    const titles = selectgData(this.props.news, "title");
+    const imgs = selectgData(this.props.news, "url");
+    
+    if(!this.props.login) {
       return (
-        <Login doLogin = {doLogin}/>
+        <Login doLogin = {loginAction}/>
       )
     }
     return (
@@ -57,14 +40,14 @@ class App extends Component {
           <div className="article">
             <Switch>
               <Route exact path="/">
-                <WithSearchHome text={news} int={dates}/>
+                <HomeWithSearch text={news} int={dates}/>
               </Route>
               <Route path="/about">
                 <About />
-                {/* <WithAuthorization/> */}
+                
               </Route>
               <Route path="/gallery">
-                <WithSearchGallery text={titles} int={imgs
+                <GalleryWithSearch text={titles} int={imgs
                 } />
               </Route>
             </Switch>
@@ -78,10 +61,13 @@ class App extends Component {
 App.propTypes = {
   getNewsAction: PropTypes.func.isRequired,
   news: PropTypes.array.isRequired,
+  loginAction: PropTypes.func.isRequired,
+  login: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   news: state.news.news,
+  login: state.login.login,
 });
 
-export default connect(mapStateToProps, { getNewsAction })(App);
+export default connect(mapStateToProps, { getNewsAction, loginAction })(App);
