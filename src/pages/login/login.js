@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
-import {user, pwd} from '../../sensitiveData';
+import {user, pwd} from '../../assets/sensitiveData';
 import LoginForm from '../../components/forms/loginForm';
 
 

@@ -1,4 +1,14 @@
 # Space theme application
+Space Application is a SPA. Application makes a request to Nasa APOD API and renders received data in the following way:
+
+  * **Home page** describes (date + explanation)  what was shot in space during last week 
+  * **Gallery page** contains the most spectacular pictures of the day for a defined period
+  * **About page** displays general information about application
+
+Project  written in React. Redux pattern and library used to manage application’s state, React Router provides easy navigation. 
+
+**Login**: test  **Password**: test
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
