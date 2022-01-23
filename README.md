@@ -1,5 +1,5 @@
 # Space theme application
-Space Application is a SPA. Application makes a request to Nasa APOD API and renders received data in the following way:
+Space Application is a SPA. Application makes a request to Nasa [APOD API](https://apod.nasa.gov/apod/astropix.html) and renders received data in the following way:
 
   * **Home page** describes (date + explanation)  what was shot in space during last week 
   * **Gallery page** contains the most spectacular pictures of the day for a defined period
